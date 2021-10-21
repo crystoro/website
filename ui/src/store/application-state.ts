@@ -1,4 +1,5 @@
 import { IBasicState, initialBasicState } from './root-reducer';
+
 interface IApplicationState {
     basicState: IBasicState;
 }

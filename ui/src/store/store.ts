@@ -4,16 +4,16 @@
  createStore: Creates a Redux store that holds the state tree
  Store: The TS Type used for the store, or state tree
  */
- import { applyMiddleware, createStore, Store } from 'redux';
- /*  Thunk
+import { applyMiddleware, createStore, Store } from 'redux';
+/*  Thunk
  Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods dispatch and getState as parameters.
  */
- import thunk from 'redux-thunk';
+import thunk from 'redux-thunk';
 import rootReducer from './root-reducer';
 import initialApplicationState from './application-state';
 
- // Create a configure store function of type `IAppState`
- export default function configureStore(): Store<typeof initialApplicationState, any> {
-   const store = createStore(rootReducer, undefined, applyMiddleware(thunk));
-   return store;
- }
+// Create a configure store function of type `IAppState`
+export default function configureStore(): Store<typeof initialApplicationState, any> {
+  const store = createStore(rootReducer, undefined, applyMiddleware(thunk));
+  return store;
+}

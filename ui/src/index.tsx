@@ -1,14 +1,11 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { Provider } from "react-redux";
 import App from "./application/App";
 import theme from "./application/theme";
-import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
 import configureStore from "./store/store";
 import "./index.css";
-
+import { MuiThemeProvider } from "@material-ui/core/styles";
 const store = configureStore();
 
 <link
@@ -17,13 +14,11 @@ const store = configureStore();
 />;
 ReactDOM.render(
     <Provider store={store}>
-        <ThemeProvider theme={theme}>
+        <MuiThemeProvider theme={theme}>
             <CssBaseline>
-                <Router>
-                    <App />
-                </Router>
+                <App />
             </CssBaseline>
-        </ThemeProvider>
+        </MuiThemeProvider>
     </Provider>,
     document.getElementById("root")
 );

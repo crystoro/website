@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledNav = styled.nav`
     display: flex;
@@ -22,9 +22,4 @@ export const NavLinks = styled.ul`
     justify-content: space-around;
     align-items: center;
     list-style: none;
-`;
-
-export const LogoContainer = styled.div`
-    justify-content: start;
-    padding: 0;
 `;
