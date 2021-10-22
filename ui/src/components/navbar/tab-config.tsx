@@ -3,8 +3,7 @@ import Wishlist from "../../pages/wishlist/index";
 import Cart from "../../pages/cart/index";
 import Shop from "../../pages/shop/index";
 import MyAccount from "../../pages/my-account/index";
-import * as React from 'react';
-import ReactComponent from 'react';
+import ReactComponent from "react";
 
 export type TabConfigType = {
     path: string;

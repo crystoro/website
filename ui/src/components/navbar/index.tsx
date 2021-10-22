@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../../assets/images/logo.png";
-import {
-    Nav,
-    NavLink,
-    Bars,
-    NavMenu,
-    NavBtn,
-    NavBtnLink,
-    LogoContainer,
-} from "./navbar-elements";
+import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, LogoContainer } from "./navbar-elements";
 import { TabConfig, TabConfigType } from "./tab-config";
 
 const Navbar = () => {
@@ -28,7 +20,7 @@ const Navbar = () => {
                 {TabConfig.map((tab: TabConfigType) => {
                     <NavLink exact to={tab.path}>
                         <li>{tab.title}</li>
-                    </NavLink>
+                    </NavLink>;
                 })}
                 <NavBtn>
                     <NavBtnLink to="/signin">Sign In</NavBtnLink>

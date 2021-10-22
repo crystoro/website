@@ -1,3 +1,4 @@
+import React from "react";
 import ReactDOM from "react-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Provider } from "react-redux";
@@ -20,5 +21,5 @@ ReactDOM.render(
             </CssBaseline>
         </MuiThemeProvider>
     </Provider>,
-    document.getElementById("root")
+    document.getElementById("root"),
 );

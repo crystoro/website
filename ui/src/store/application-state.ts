@@ -1,9 +1,9 @@
-import { IBasicState, initialBasicState } from './root-reducer';
+import { IBasicState, initialBasicState } from "./root-reducer";
 
 interface IApplicationState {
     basicState: IBasicState;
 }
 const initialApplicationState: IApplicationState = {
-  basicState: initialBasicState,
+    basicState: initialBasicState,
 };
 export default initialApplicationState;

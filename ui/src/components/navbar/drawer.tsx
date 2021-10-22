@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import {
     Divider,
@@ -35,11 +36,7 @@ function DrawerComponent() {
                             <>
                                 <ListItem onClick={() => setOpenDrawer(false)}>
                                     <ListItemText>
-                                        <NavLink
-                                            exact
-                                            to={tab.path}
-                                            className={classes.link}
-                                        >
+                                        <NavLink exact to={tab.path} className={classes.link}>
                                             <li>{tab.title}</li>
                                         </NavLink>
                                     </ListItemText>
@@ -58,10 +55,7 @@ function DrawerComponent() {
                     <Divider />
                 </List>
             </Drawer>
-            <IconButton
-                onClick={() => setOpenDrawer(!openDrawer)}
-                className={classes.icon}
-            >
+            <IconButton onClick={() => setOpenDrawer(!openDrawer)} className={classes.icon}>
                 <MenuIcon />
             </IconButton>
         </>

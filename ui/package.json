@@ -24,8 +24,31 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "lint": "eslint .",
-        "lint:fix": "eslint --fix --ext .js,.jsx"
+        "lint": "eslint --cache ./src/**/*.{ts, tsx, js, jsx}",
+        "lint-fix": "eslint --cache ./src/**/*.{ts, tsx, js, jsx} --fix --quiet",
+        "format": "prettier --write \"**/*.*(ts|tsx|js|jsx|json|scss|css|)\"",
+        "format-quick": "prettier-quick"
+    },
+    "prettier": {
+        "printWidth": 100,
+        "bracketSpacing": true,
+        "semi": true,
+        "trailingComma": "all",
+        "tabWidth": 4,
+        "arrowParens": "always",
+        "singleQuote": false
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.*(ts|tsx|js|jsx)": [
+            "eslint --fix --quiet",
+            "prettier -write",
+            "git add"
+        ]
     },
     "eslintConfig": {
         "extends": [
@@ -46,6 +69,7 @@
         ]
     },
     "devDependencies": {
+        "@babel/eslint-parser": "^7.15.8",
         "@types/material-ui": "^0.21.10",
         "@types/react": "^17.0.30",
         "@types/react-dom": "^17.0.10",
@@ -56,11 +80,14 @@
         "@typescript-eslint/eslint-plugin": "^5.1.0",
         "@typescript-eslint/parser": "^5.1.0",
         "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
         "eslint-import-resolver-typescript": "^2.5.0",
         "eslint-plugin-import": "^2.25.2",
         "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.26.1",
         "eslint-plugin-react-hooks": "^4.2.0",
+        "prettier": "2.4.1",
         "typescript": "^4.4.4"
     }
 }
