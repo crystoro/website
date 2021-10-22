@@ -9,8 +9,8 @@ import { FiHome, FiHeart, FiUser, FiShoppingBag, FiShoppingCart } from "react-ic
 
 export type TabConfigType = {
     path: string;
+    title: string;
     component: ReactComponent.FC;
-    title?: string;
     icon?: any;
     exact?: boolean;
 };
@@ -29,16 +29,19 @@ export const TabConfig: TabConfigType[] = [
     },
     {
         path: "/profile",
+        title: "Profile",
         component: Profile,
         icon: <FiUser />,
     },
     {
         path: "/wishlist",
+        title: "Wishlist",
         component: Wishlist,
         icon: <FiHeart />,
     },
     {
         path: "/cart",
+        title: "Cart",
         component: Cart,
         icon: <FiShoppingCart />,
     },
