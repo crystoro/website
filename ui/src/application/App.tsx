@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import Navbar from "../components/navbar/navbar";
+import Navbar from "../components/navbar";
 import { MainApp } from "./styles";
 import { TabConfig, TabConfigType } from "../components/navbar/tab-config";
 

@@ -1,38 +1,22 @@
 import React from "react";
-import { AppBar, Toolbar, useTheme, useMediaQuery } from "@material-ui/core";
-import DrawerComponent from "./drawer";
-import { NavMenu, NavLink, NavBtn, NavBtnLink, LogoContainer } from "./navbar-elements";
-import Logo from "../../assets/images/logo.png";
+import { NavMenu, NavLink, NavBtn, NavTab } from "./styles";
 import { TabConfig } from "./tab-config";
 
-const Navbar = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
+const NavbarComponent = () => {
     return (
-        <AppBar position="static">
-            <Toolbar>
-                <NavLink to="/">
-                    <LogoContainer>
-                        <img src={Logo} alt="Crystoro" />
-                    </LogoContainer>
-                </NavLink>
-                {isMobile ? (
-                    <DrawerComponent />
-                ) : (
-                    <NavMenu>
-                        {TabConfig.map((tab, index) => (
-                            <NavLink key={index} exact={tab.exact} to={tab.path}>
-                                <li>{tab.title}</li>
-                            </NavLink>
-                        ))}
-                        <NavBtn>
-                            <NavBtnLink to="/signin">Sign In</NavBtnLink>
-                        </NavBtn>
-                    </NavMenu>
-                )}
-            </Toolbar>
-        </AppBar>
+        <NavMenu>
+            {TabConfig.map((tab, index) => (
+                <NavTab key={index}>
+                    <NavLink exact={tab.exact} to={tab.path}>
+                        <li>
+                            {tab.title} {tab.icon}
+                        </li>
+                    </NavLink>
+                </NavTab>
+            ))}
+            <NavBtn>Log In</NavBtn>
+        </NavMenu>
     );
 };
-export default Navbar;
+
+export default NavbarComponent;

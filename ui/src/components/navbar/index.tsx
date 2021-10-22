@@ -1,32 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
+import { Toolbar, useTheme, useMediaQuery } from "@material-ui/core";
+import DrawerComponent from "./drawer";
+import NavbarComponent from "./navbar";
+import { LogoContainer, StyledAppBar } from "./styles";
 import Logo from "../../assets/images/logo.png";
-import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, LogoContainer } from "./navbar-elements";
-import { TabConfig, TabConfigType } from "./tab-config";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    const [toggle, setToggle] = useState(false);
-    const handleToggle = () => {
-        setToggle(!toggle);
-    };
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     return (
-        <Nav>
-            <NavLink to="/">
-                <LogoContainer>
-                    <img src={Logo} alt="Crystoro" />
-                </LogoContainer>
-            </NavLink>
-            <Bars onClick={handleToggle} />
-            <NavMenu>
-                {TabConfig.map((tab: TabConfigType) => {
-                    <NavLink exact to={tab.path}>
-                        <li>{tab.title}</li>
-                    </NavLink>;
-                })}
-                <NavBtn>
-                    <NavBtnLink to="/signin">Sign In</NavBtnLink>
-                </NavBtn>
-            </NavMenu>
-        </Nav>
+        <StyledAppBar position="static">
+            <Toolbar>
+                <NavLink to="/">
+                    <LogoContainer>
+                        <img src={Logo} alt="Crystoro" />
+                    </LogoContainer>
+                </NavLink>
+                {isMobile ? <DrawerComponent /> : <NavbarComponent />}
+            </Toolbar>
+        </StyledAppBar>
     );
 };
 export default Navbar;

@@ -10,17 +10,15 @@ import {
     makeStyles,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import { NavLink } from "./navbar-elements";
+import { NavLink } from "./styles";
 import { TabConfig } from "./tab-config";
 
 const useStyles = makeStyles(() => ({
-    link: {
-        textDecoration: "none",
-        color: "charcoal",
-        fontSize: "20px",
-    },
     icon: {
-        color: "white",
+        display: "flex",
+        flex: "1",
+        justifyContent: "flex-end",
+        color: "navy-blue",
     },
 }));
 
@@ -36,7 +34,7 @@ function DrawerComponent() {
                             <>
                                 <ListItem onClick={() => setOpenDrawer(false)}>
                                     <ListItemText>
-                                        <NavLink exact to={tab.path} className={classes.link}>
+                                        <NavLink exact to={tab.path}>
                                             <li>{tab.title}</li>
                                         </NavLink>
                                     </ListItemText>
@@ -47,7 +45,7 @@ function DrawerComponent() {
                     })}
                     <ListItem onClick={() => setOpenDrawer(false)}>
                         <ListItemText>
-                            <NavLink to="/signin" className={classes.link}>
+                            <NavLink to="/signin">
                                 <li>Sign In</li>
                             </NavLink>
                         </ListItemText>
@@ -55,9 +53,11 @@ function DrawerComponent() {
                     <Divider />
                 </List>
             </Drawer>
-            <IconButton onClick={() => setOpenDrawer(!openDrawer)} className={classes.icon}>
-                <MenuIcon />
-            </IconButton>
+            <div className={classes.icon}>
+                <IconButton onClick={() => setOpenDrawer(!openDrawer)}>
+                    <MenuIcon />
+                </IconButton>
+            </div>
         </>
     );
 }
